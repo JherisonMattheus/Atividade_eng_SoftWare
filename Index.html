@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
 
     <title>Chute</title>
 </head>
 <body>
+
     <header class="header">
         <section class="right"></section>
         <section class="left"></section>
     </header>
-    <main class="main-screen">
-        <button id="historico" class="historico" type="button">Histórico</button>
-        <section class="historico"></section>
-        <button id="play" class="play" type="button">play</button>
-        <section class="game"></section>
-        <button id="sair" class="sair" type="button">Sair</button>
+
+    <main id="main-screen" class="main-screen">
+        <h1>Chute</h1>
+        <button id="historico" type="button">Histórico</button>
+        <section id="sec-historico" class="sec-historico hide">
+            <header class="title">
+                <div><h3>Nome</h3></div>
+                <div><h3>Pontuação</h3></div>
+                <div><h3>Data</h3></div>
+            </header>
+        </section>
+        <button id="play" type="button">play</button>
+        <section id="game" class="game hide"></section>
+        <button id="sair" type="button">Sair</button>
     </main>
+
     <footer class="footer">
         <section class="right"></section>
         <section class="left"></section>
     </footer>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
