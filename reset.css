@@ -2,12 +2,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Kanit";
 }
 
 body {
     display: flex;
+    flex-direction: column;
     width: 100dvw;
     height: 100dvh;
     justify-content: center;
     align-items: center;
-}
+}  
