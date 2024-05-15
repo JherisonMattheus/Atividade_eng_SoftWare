@@ -37,9 +37,16 @@
                 <input id="nickname" class="nickname" type="text" placeholder="Nickname">
                 <button id="button-nickname" class="button-nickname" type="button">Começar</button>
             </div>
-            <div id="tela-jogo" class="tela-jogo dimension-zero">
+            <section id="tela-jogo" class="tela-jogo dimension-zero hide">
+                <div class="barra-frio-quente"></div>
+                <div id="elemento-svg" class="elemento-svg"></div>
+                <div id="dica" class="dica"><p>Número muito alto!</p></div>
 
-            </div>
+                <div class="entrada-dado">
+                    <input type="number" name="chute" id="chute" class="chute" placeholder="Chute um número de 0 a 100">
+                    <button id="chutar" class="chutar" type="button"></button>
+                </div>
+            </section>
         </section>
         <button id="sair" class="sair" type="button">Sair</button>
     </main>

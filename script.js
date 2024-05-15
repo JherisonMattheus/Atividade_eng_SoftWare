@@ -53,7 +53,8 @@ comecar.addEventListener('click', ()=>{
     register.classList.add('hide');
     register.classList.add('dimension-zero');
     register.classList.remove('dimension-full');
-
+    
+    tela_jogo.classList.remove('hide');
     tela_jogo.classList.remove('dimension-zero');
     tela_jogo.classList.add('dimension-full');
 
@@ -81,8 +82,9 @@ sair.addEventListener('click', ()=>{
             // main_screen.querySelector('h1').style.opacity = '0';
             setTimeout(function(){
                 main_screen.querySelector('h1').style.zIndex = '1';
-            }, 2100);
+            }, 2500);
 
+            tela_jogo.classList.add('hide');
             tela_jogo.classList.remove('dimension-full');
             tela_jogo.classList.add('dimension-zero');
         }
