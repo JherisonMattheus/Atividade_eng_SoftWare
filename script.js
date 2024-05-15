@@ -28,7 +28,6 @@ historico.addEventListener('click', ()=>{
 });
 
 play.addEventListener('click', ()=>{
-    // main_screen.querySelector('h1').style.opacity = '0';
 
     game.classList.remove('hide');
     
@@ -47,7 +46,9 @@ play.addEventListener('click', ()=>{
 
 comecar.addEventListener('click', ()=>{
     main_screen.classList.add('main-screen-alt-2');
-    main_screen.querySelector('h1').style.zIndex = '3';
+    setTimeout(function(){
+        main_screen.querySelector('h1').style.zIndex = '3';
+    }, 2800);
 
     register.classList.add('hide');
     register.classList.add('dimension-zero');
@@ -77,7 +78,10 @@ sair.addEventListener('click', ()=>{
 
         if(!tela_jogo.classList.contains('hide')){
             main_screen.classList.remove('main-screen-alt-2');
-            main_screen.querySelector('h1').style.zIndex = '1';
+            // main_screen.querySelector('h1').style.opacity = '0';
+            setTimeout(function(){
+                main_screen.querySelector('h1').style.zIndex = '1';
+            }, 2100);
 
             tela_jogo.classList.remove('dimension-full');
             tela_jogo.classList.add('dimension-zero');
