@@ -10,6 +10,9 @@ const game = document.getElementById('game');
 const register = document.getElementById('nickname-register');
 const tela_jogo = document.getElementById('tela-jogo');
 
+const nickname = document.getElementById('nickname');
+
+let num_random;
 
 historico.addEventListener('click', ()=>{
     if(sec_historico.classList.contains('hide')){
@@ -45,6 +48,11 @@ play.addEventListener('click', ()=>{
 });
 
 comecar.addEventListener('click', ()=>{
+    if(nickname.value === ''){
+        console.log('Digite um nome');
+    }else {
+    num_random = Math.random() * 100;
+
     main_screen.classList.add('main-screen-alt-2');
     setTimeout(function(){
         main_screen.querySelector('h1').style.zIndex = '3';
@@ -54,9 +62,13 @@ comecar.addEventListener('click', ()=>{
     register.classList.add('dimension-zero');
     register.classList.remove('dimension-full');
     
-    tela_jogo.classList.remove('hide');
+    tela_jogo.style.display = 'flex';
+    setTimeout(function(){
+        tela_jogo.classList.remove('hide');
+    }, 2000);
     tela_jogo.classList.remove('dimension-zero');
     tela_jogo.classList.add('dimension-full');
+    }
 
 });
 
@@ -79,12 +91,14 @@ sair.addEventListener('click', ()=>{
 
         if(!tela_jogo.classList.contains('hide')){
             main_screen.classList.remove('main-screen-alt-2');
-            // main_screen.querySelector('h1').style.opacity = '0';
             setTimeout(function(){
                 main_screen.querySelector('h1').style.zIndex = '1';
             }, 2500);
 
             tela_jogo.classList.add('hide');
+            setTimeout(function(){
+                tela_jogo.style.display = 'none';
+            }, 2000);
             tela_jogo.classList.remove('dimension-full');
             tela_jogo.classList.add('dimension-zero');
         }
