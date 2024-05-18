@@ -71,30 +71,59 @@ button {
 }
 
 .title {
-    display: flex;
     transition: opacity 0.5s ease-in-out 1s;
 }
 
 .title h3 {
-    border-top: 1px solid #797979;
-    border-left: 1px solid #797979;
-    border-bottom: 1px solid #797979;
     padding-left: 10px;
+}
+
+.title section:nth-of-type(1){
+    display: flex;
+    width: 100%;
+    height: 20%;
+    border: 1px solid #797979;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .title h3:first-of-type {
     width: 50%;
-    border-top-left-radius: 5px;
 }
 
 .title h3:nth-of-type(2) {
     width: 30%;
+    border-left: 1px solid #797979;
 }
 
 .title h3:nth-of-type(3) {
     width: 20%;
-    border-right: 1px solid #797979;
-    border-top-right-radius: 5px;
+    border-left: 1px solid #797979;
+}
+
+.title section:nth-of-type(2){
+    display: flex;
+    width: 100%;
+    height: 250px;
+    border: 1px solid #797979;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nome-lista{
+    width: 50%;
+}
+
+.pontuacao{
+    width: 30%;
+    padding-left: 10px;
+    border-left: 1px solid #797979;
+}
+
+.data-lista {
+    width: 20%;
+    border-left: 1px solid #797979;
 }
 
 .game {

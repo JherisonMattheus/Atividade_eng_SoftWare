@@ -1,21 +1,21 @@
+//importando dados do arquivo index.html
 const historico = document.getElementById('historico');
 const play = document.getElementById('play');
 const comecar = document.getElementById('button-nickname');
 const sair = document.getElementById('sair');
-
 const main_screen = document.getElementById('main-screen');
 const sec_historico = document.getElementById('sec-historico');
 const title = document.getElementById('title');
 const game = document.getElementById('game');
 const register = document.getElementById('nickname-register');
 const tela_jogo = document.getElementById('tela-jogo');
-
 const nickname = document.getElementById('nickname');
-
-
+//importando functions do arquivo game.js
+import('./game.js');
+//variavel que vai armazenar o numero aleatorio do jogo
 let num_random;
 
-
+//rota é regras do evento historico
 historico.addEventListener('click', ()=>{
     if(sec_historico.classList.contains('hide')){
         main_screen.classList.add('main-screen-alt');
@@ -31,6 +31,8 @@ historico.addEventListener('click', ()=>{
         sair.style.bottom = '50px';
     }
 });
+
+//função para resetar o indicador da barra de muito alto ou baixo o numero chutado
 function resetarIndicador() {
     const indicador = document.querySelector('.indicador');
     const barra = document.querySelector('.barra-frio-quente');
@@ -41,6 +43,8 @@ function resetarIndicador() {
     indicador.textContent = '😐'; 
     indicador.className = 'indicador'; 
 }
+
+//rota e regras do evento play
 play.addEventListener('click', ()=>{
     nickname.value ='';
     document.getElementById('chute').value = '';
@@ -49,7 +53,7 @@ play.addEventListener('click', ()=>{
     
     historico.classList.add('hide');
     historico.classList.remove('button-show');
-
+    //retira o botão
     play.classList.remove('button-show');
     play.classList.add('hide');
 
@@ -58,18 +62,24 @@ play.addEventListener('click', ()=>{
     register.classList.add('dimension-full');
 
     sair.style.bottom = '50px';
+    verificarChute();
     resetarIndicador();
 });
 
+//rota e regras do evento começar
 comecar.addEventListener('click', ()=>{
+    //condição para validar se foi colocado um nome na tela de nomes
     if(nickname.value === ''){
         console.log('Digite um nome');
-    }else {
-    num_random = Math.floor(Math.random() * 101);
-    console.log('Número aleatório:', num_random)
-    main_screen.classList.add('main-screen-alt-2');
-    setTimeout(function(){
-        main_screen.querySelector('h1').style.zIndex = '3';
+    }else{//caso sim, inicia o jogo
+
+        //cria um numero aleatorio
+        num_random = Math.floor(Math.random() * 101);
+        //necessita desse console log?
+        console.log('Número aleatório:', num_random)
+        main_screen.classList.add('main-screen-alt-2');
+        setTimeout(function(){
+            main_screen.querySelector('h1').style.zIndex = '3';
     }, 2800);
 
     register.classList.add('hide');
@@ -133,6 +143,7 @@ sair.addEventListener('click', ()=>{
     }
         
 });
+
 function atualizarIndicador(chuteUsuario) {
     const barra = document.querySelector('.barra-frio-quente');
     const indicador = document.querySelector('.indicador');

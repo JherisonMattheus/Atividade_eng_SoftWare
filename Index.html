@@ -15,19 +15,21 @@
 </head>
 <body>
 
-    <!-- <header class="header">
-        <section class="right"></section>
-        <section class="left"></section>
-    </header> -->
-
     <main id="main-screen" class="main-screen">
         <h1>Chute</h1>
         <button id="historico" class="historico" type="button">Histórico</button>
         <section id="sec-historico" class="sec-historico hide">
             <header id="title" class="title">
-                <h3>Nome</h3>
-                <h3>Pontuação</h3>
-                <h3>Data</h3>
+                <section>
+                    <h3>Nome</h3>
+                    <h3>Pontuação</h3>
+                    <h3>Data</h3>
+                </section>
+                <section>
+                    <div id="nome-lista" class="nome-lista"></div>
+                    <div id="pontuacao" class="pontuacao"></div>
+                    <div id="data-lista" class="data-lista"></div>
+                </section>
             </header>
         </section>
         <button id="play" class="play" type="button">Play</button>
@@ -53,12 +55,8 @@
         <button id="sair" class="sair" type="button">Sair</button>
     </main>
 
-    <!-- <footer class="footer">
-        <section class="right"></section>
-        <section class="left"></section>
-    </footer> -->
+
 
     <script src="script.js"></script>
-    <!-- <script type="module" src="game.js"></script>-->
 </body>
 </html>

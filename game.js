@@ -1,10 +1,10 @@
-export function atualizarIndicador(chuteUsuario) {
+function atualizarIndicador(chuteUsuario) {
     const barra = document.querySelector('.barra-frio-quente');
     const indicador = document.querySelector('.indicador');
 
     const larguraBarra = barra.clientWidth;
     const intervalo = 100;
-    const proximidade  = Math.abs(chuteUsuario - num_random);
+    let proximidade  = Math.abs(chuteUsuario - num_random);
     let posicaoIndicador = larguraBarra - ((larguraBarra / intervalo) * proximidade);
     posicaoIndicador = Math.min(posicaoIndicador, larguraBarra - indicador.clientWidth);
 
@@ -22,7 +22,11 @@ export function atualizarIndicador(chuteUsuario) {
 }
 document.getElementById('chutar').addEventListener('click', verificarChute);
 
-export function verificarChute() {
+
+//
+
+function verificarChute() {
+    console.log("entrou na function verificarchute");
     const chute = document.getElementById('chute');
     const dica = document.getElementById('dica').querySelector('p');
 
