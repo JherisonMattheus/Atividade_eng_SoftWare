@@ -2,6 +2,7 @@ function atualizarIndicador(chuteUsuario) {
     const barra = document.querySelector('.barra-frio-quente');
     const indicador = document.querySelector('.indicador');
 
+
     const larguraBarra = barra.clientWidth;
     const intervalo = 100;
     let proximidade  = Math.abs(chuteUsuario - num_random);
@@ -30,22 +31,17 @@ function atualizarIndicador(chuteUsuario) {
 let tentativas = 0;
 document.getElementById('chutar').addEventListener('click', verificarChute);
 
-<<<<<<< HEAD
 
 //
 
+
 function verificarChute() {
-    console.log("entrou na function verificarchute");
-=======
-function verificarChute() {
->>>>>>> 82faa44180752b1deaccb90da446b5ae4c711b62
     const chute = document.getElementById('chute');
     const dica = document.getElementById('dica').querySelector('p');
 
     if (!isNaN(chute.value) && chute.value >= 0 && chute.value <= 100) {
         const chuteUsuario = parseInt(chute.value);
-        tentativas++; 
-        document.getElementById('tentativas-texto').textContent = `Tentativas: ${tentativas}`; 
+        tentativas++;  
         if (chuteUsuario === num_random) {
             dica.textContent = "Você acertou!";
     
@@ -61,4 +57,3 @@ function verificarChute() {
         return null;
     }
 }
-

@@ -10,14 +10,11 @@ const game = document.getElementById('game');
 const register = document.getElementById('nickname-register');
 const tela_jogo = document.getElementById('tela-jogo');
 const nickname = document.getElementById('nickname');
-<<<<<<< HEAD
 //importando functions do arquivo game.js
 import('./game.js');
 //variavel que vai armazenar o numero aleatorio do jogo
-=======
 import('./game.js');
 
->>>>>>> 82faa44180752b1deaccb90da446b5ae4c711b62
 let num_random;
 
 //rota é regras do evento historico
@@ -73,12 +70,8 @@ play.addEventListener('click', ()=>{
 
 //rota e regras do evento começar
 comecar.addEventListener('click', ()=>{
-<<<<<<< HEAD
     //condição para validar se foi colocado um nome na tela de nomes
-=======
     tentativas = 0; // Reinicia o contador de tentativas
-    document.getElementById('tentativas-texto').textContent = `Tentativas: ${tentativas}`;
->>>>>>> 82faa44180752b1deaccb90da446b5ae4c711b62
     if(nickname.value === ''){
         console.log('Digite um nome');
     }else{//caso sim, inicia o jogo
@@ -153,7 +146,6 @@ sair.addEventListener('click', ()=>{
     }
         
 });
-<<<<<<< HEAD
 
 function atualizarIndicador(chuteUsuario) {
     const barra = document.querySelector('.barra-frio-quente');
@@ -199,5 +191,12 @@ function verificarChute() {
         dica.textContent = "Por favor, insira um número válido de 0 a 100.";
     }
 }
-=======
->>>>>>> 82faa44180752b1deaccb90da446b5ae4c711b62
+
+
+
+// const nome_lista = document.getElementById('nome-lista');
+
+// let nome_vez = document.getElementById('nickname').value;
+// let p = document.createElement('p');
+// nome_lista.appendChild(p);
+// p.textContent = nome_vez;
