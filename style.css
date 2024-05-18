@@ -70,6 +70,62 @@ button {
     transition: opacity 0.5s ease-in-out 1s, width 2s ease-in, height 2s ease-in-out, padding 2s ease-in, top 2s ease-in-out;
 }
 
+table {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 1.5px #000000;
+    border-collapse: collapse;
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+thead{
+    height: 10px;
+}
+
+thead .linha {
+    height: 40px;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 500;
+    border-bottom: 1px solid #797979;
+}
+
+thead .linha td:first-of-type {
+    text-align: center;
+}
+
+tbody {
+    height: 240px;
+}
+
+.linha {
+    height: 20%;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+.linha td{
+    border-left: 1px solid #797979;
+    border-bottom: 1px solid #797979;
+    padding: 5px;
+    text-align: center;
+}
+
+.linha td:first-of-type{
+    width: 50%;
+    border-left: none;
+    text-align: left;
+}
+
+.linha td:last-of-type {
+    width: 30%;
+}
+
+.linha:last-of-type td{
+    border-bottom: none;
+}
+
 .game {
     position: absolute;
     z-index: 2;
@@ -229,6 +285,10 @@ button {
     width: 580px;
     height: 300px;
     padding: 10px;
+}
+
+.table-delay{
+    transition-delay: 2s;
 }
 
 .dimension-zero {

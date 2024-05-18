@@ -5,12 +5,12 @@ const comecar = document.getElementById('button-nickname');
 const sair = document.getElementById('sair');
 const main_screen = document.getElementById('main-screen');
 const sec_historico = document.getElementById('sec-historico');
-const title = document.getElementById('title');
+const table = document.getElementById('table');
 const game = document.getElementById('game');
 const register = document.getElementById('nickname-register');
 const tela_jogo = document.getElementById('tela-jogo');
 const nickname = document.getElementById('nickname');
-//importando functions do arquivo game.js
+//importando functions do arquivo gam   e.js
 import('./game.js');
 //variavel que vai armazenar o numero aleatorio do jogo
 import('./game.js');
@@ -25,7 +25,9 @@ historico.addEventListener('click', ()=>{
         historico.style.pointerEvents = 'none';
         sec_historico.classList.remove('hide');
         sec_historico.classList.add('sec-historico-on');
-        title.style.opacity = '1';
+
+        table.classList.remove('hide');
+        table.classList.add('table-delay');
 
         play.classList.remove('button-show');
         play.classList.add('button-hide');
@@ -107,7 +109,9 @@ sair.addEventListener('click', ()=>{
         historico.style.pointerEvents = 'initial';
         sec_historico.classList.remove('sec-historico-on');
         sec_historico.classList.add('hide');
-        title.style.opacity = '0';
+
+        table.classList.remove('table-delay');
+        table.classList.add('hide');
 
         play.classList.remove('button-hide');
         play.classList.add('button-show');
