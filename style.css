@@ -201,7 +201,7 @@ button {
     background-color: transparent; 
     transition: left 0.5s; 
 }
-.indicador.frio {
+ .indicador.frio {
     color: blue;
 }
 
@@ -211,7 +211,7 @@ button {
 
 .indicador.acerto {
     color: green;
-}
+} 
 .dica {
     position: absolute;
     top: 200px;

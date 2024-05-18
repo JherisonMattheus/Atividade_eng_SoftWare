@@ -7,11 +7,17 @@ function atualizarIndicador(chuteUsuario) {
     let proximidade  = Math.abs(chuteUsuario - num_random);
     let posicaoIndicador = larguraBarra - ((larguraBarra / intervalo) * proximidade);
     posicaoIndicador = Math.min(posicaoIndicador, larguraBarra - indicador.clientWidth);
+    
+    const divisoes = 20; // Dividir a barra em 20 partes
+    const larguraDivisao = larguraBarra / divisoes;
+    const posicaoCentro = Math.round(posicaoIndicador / larguraDivisao) * larguraDivisao;
 
-    indicador.style.left = posicaoIndicador + 'px';
+    indicador.style.left = Math.max(0, Math.min(posicaoCentro, larguraBarra - indicador.clientWidth)) + 'px';
+
     if (proximidade === 0) {
         indicador.textContent = '😁'; // Emoji de acerto
         indicador.className = 'indicador acerto';
+  
     } else if (proximidade <= 10) {
         indicador.textContent = '🔥'; // Emoji de quente
         indicador.className = 'indicador quente';
@@ -20,21 +26,29 @@ function atualizarIndicador(chuteUsuario) {
         indicador.className = 'indicador frio';
     }
 }
+
+let tentativas = 0;
 document.getElementById('chutar').addEventListener('click', verificarChute);
 
+<<<<<<< HEAD
 
 //
 
 function verificarChute() {
     console.log("entrou na function verificarchute");
+=======
+function verificarChute() {
+>>>>>>> 82faa44180752b1deaccb90da446b5ae4c711b62
     const chute = document.getElementById('chute');
     const dica = document.getElementById('dica').querySelector('p');
 
     if (!isNaN(chute.value) && chute.value >= 0 && chute.value <= 100) {
         const chuteUsuario = parseInt(chute.value);
-
+        tentativas++; 
+        document.getElementById('tentativas-texto').textContent = `Tentativas: ${tentativas}`; 
         if (chuteUsuario === num_random) {
             dica.textContent = "Você acertou!";
+    
         } else if (Math.abs(chuteUsuario - num_random) <= 10) {
             dica.textContent = "Você está quente!";
         } else {
