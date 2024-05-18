@@ -44,6 +44,7 @@ function verificarChute() {
         tentativas++;  
         if (chuteUsuario === num_random) {
             dica.textContent = "Você acertou!";
+            armazenardados();
     
         } else if (Math.abs(chuteUsuario - num_random) <= 10) {
             dica.textContent = "Você está quente!";
@@ -57,3 +58,28 @@ function verificarChute() {
         return null;
     }
 }
+
+//a partir dessa linha, serão criados as functions para armazenar os dados no cookie
+function armazenardados(){
+
+};
+
+//function para a configuração de duração de tempo do cookie 
+function setCookie(name, value){
+        const date = new Date();
+        date.setFullYear(date.getFullYear() + 40);
+        const expires = "; expires =" + date.getUTCString();
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+};
+
+//function para deletar jogador
+function eraseCookie(name){
+    document.cookie = name + '=; Max-Age=-99999999;';
+};
+
+//function para salvar jogador
+function saveScore(scores){
+    setCookie('gameScores', JSON.stringify(scores));
+};
+
+
