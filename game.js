@@ -32,9 +32,6 @@ let tentativas = 0;
 document.getElementById('chutar').addEventListener('click', verificarChute);
 
 
-//
-
-
 function verificarChute() {
     const chute = document.getElementById('chute');
     const dica = document.getElementById('dica').querySelector('p');
@@ -59,16 +56,36 @@ function verificarChute() {
     }
 }
 
-//a partir dessa linha, serão criados as functions para armazenar os dados no cookie
-function armazenardados(){
+let nomeJogador = '';
 
+document.getElementById('button-nickname').addEventListener('click', () => {
+    nomeJogador = document.getElementById('nickname').value;
+    document.getElementById('nickname-register').classList.add('hide');
+});
+
+//function para armazenar os dados no cookie
+function armazenardados(){
+    const data = new Date().toLocaleDateString('pt-BR');
+    const scores = JSON.parse(getCookie('gameScores') || '[]');
+
+    console.log('Scores existentes:', scores);
+
+    const novoScore = {
+        nome: nomeJogador,
+        data: data,
+        tentativas: tentativas
+    };
+
+    scores.push(novoScore);
+    saveScore(scores);
+    atualizarTabela(scores);
 };
 
 //function para a configuração de duração de tempo do cookie 
 function setCookie(name, value){
         const date = new Date();
         date.setFullYear(date.getFullYear() + 40);
-        const expires = "; expires =" + date.getUTCString();
+        const expires = "; expires =" + date.toUTCString();
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
 };
 
@@ -81,5 +98,38 @@ function eraseCookie(name){
 function saveScore(scores){
     setCookie('gameScores', JSON.stringify(scores));
 };
+// Function para obter cookie
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i=0;i < ca.length;i++) {
+        let c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
 
+// Function para atualizar a tabela com os dados armazenados
+function atualizarTabela(scores) {
+    const tabela = document.getElementById('tabela-dados');
+    tabela.innerHTML = ''; 
+
+    scores.forEach((score, index) => {
+        const row = tabela.insertRow(index);
+        const cellNome = row.insertCell(0);
+        const cellTentativas = row.insertCell(1);
+        const cellData = row.insertCell(2);
+
+        cellNome.textContent = score.nome;
+        cellTentativas.textContent = score.tentativas;
+        cellData.textContent = score.data;
+    });
+}
+
+// Atualiza a tabela ao carregar a página com dados existentes
+document.addEventListener('DOMContentLoaded', () => {
+    const scores = JSON.parse(getCookie('gameScores') || '[]');
+    atualizarTabela(scores);
+});
 
