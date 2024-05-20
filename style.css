@@ -99,30 +99,30 @@ tbody {
     height: 240px;
 }
 
-.linha {
+tr {
     height: 20%;
     font-size: 1.2em;
     font-weight: 300;
 }
 
-.linha td{
+ tr td{
     border-left: 1px solid #797979;
     border-bottom: 1px solid #797979;
     padding: 5px;
     text-align: center;
 }
 
-.linha td:first-of-type{
+ td:first-of-type{
     width: 50%;
     border-left: none;
     text-align: left;
 }
 
-.linha td:last-of-type {
+td:last-of-type {
     width: 30%;
 }
 
-.linha:last-of-type td{
+tr:last-of-type td{
     border-bottom: none;
 }
 
