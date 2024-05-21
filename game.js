@@ -38,7 +38,6 @@ function verificarChute() {
 
     if (!isNaN(chute.value) && chute.value >= 0 && chute.value <= 100) {
         const chuteUsuario = parseInt(chute.value);
-        tentativas++;  
         if (chuteUsuario === num_random) {
             dica.textContent = "Você acertou!";
             armazenardados();
@@ -116,7 +115,6 @@ function atualizarTabela(scores) {
     tabela.innerHTML = ''; 
 
     scores.forEach((score, index) => {
-        console.log('oi');
         const row = tabela.insertRow(index);
         const cellNome = row.insertCell(0);
         const cellTentativas = row.insertCell(1);

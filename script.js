@@ -65,7 +65,6 @@ play.addEventListener('click', ()=>{
     register.classList.add('dimension-full');
 
     sair.style.bottom = '50px';
-    verificarChute();
     resetarIndicador();
 });
 
