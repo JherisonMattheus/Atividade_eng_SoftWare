@@ -252,6 +252,9 @@ tr:last-of-type td{
 .chutar {
     width: 80px;
     border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hide {

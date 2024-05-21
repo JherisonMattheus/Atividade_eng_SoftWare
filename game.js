@@ -116,6 +116,7 @@ function atualizarTabela(scores) {
     tabela.innerHTML = ''; 
 
     scores.forEach((score, index) => {
+        console.log('oi');
         const row = tabela.insertRow(index);
         const cellNome = row.insertCell(0);
         const cellTentativas = row.insertCell(1);
