@@ -19,7 +19,7 @@ function atualizarIndicador(chuteUsuario) {
         indicador.textContent = '😁'; // Emoji de acerto
         indicador.className = 'indicador acerto';
   
-    } else if (proximidade <= 10) {
+    } else if (proximidade <= 5) {
         indicador.textContent = '🔥'; // Emoji de quente
         indicador.className = 'indicador quente';
     } else {
@@ -36,6 +36,7 @@ function verificarChute() {
     const chute = document.getElementById('chute');
     const dica = document.getElementById('dica').querySelector('p');
 
+    ++tentativas;
     if (!isNaN(chute.value) && chute.value >= 0 && chute.value <= 100) {
         const chuteUsuario = parseInt(chute.value);
         if (chuteUsuario === num_random) {
@@ -78,6 +79,7 @@ function armazenardados(){
     scores.push(novoScore);
     saveScore(scores);
     atualizarTabela(scores);
+    tentativas = 0;
 };
 
 //function para a configuração de duração de tempo do cookie 
@@ -127,8 +129,12 @@ function atualizarTabela(scores) {
 }
 
 // Atualiza a tabela ao carregar a página com dados existentes
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
+    const cookieValue = getCookie('gameScores');
+    console.log('oi');  
+    console.log('Cookie Value:', cookieValue);
     const scores = JSON.parse(getCookie('gameScores') || '[]');
+    console.log('Scores:', scores); // Adicione este log para verificar os scores
     atualizarTabela(scores);
 });
 

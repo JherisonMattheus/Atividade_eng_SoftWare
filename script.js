@@ -148,13 +148,3 @@ sair.addEventListener('click', ()=>{
     }
         
 });
-
-
-
-
-// const nome_lista = document.getElementById('nome-lista');
-
-// let nome_vez = document.getElementById('nickname').value;
-// let p = document.createElement('p');
-// nome_lista.appendChild(p);
-// p.textContent = nome_vez;
