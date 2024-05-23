@@ -79,7 +79,6 @@ function armazenardados(){
     scores.push(novoScore);
     saveScore(scores);
     atualizarTabela(scores);
-    tentativas = 0;
 };
 
 //function para a configuração de duração de tempo do cookie 
@@ -101,21 +100,20 @@ function saveScore(scores){
 };
 // Function para obter cookie
 function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for(let i=0;i < ca.length;i++) {
-        let c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
+    const cookies = Object.fromEntries(
+        document.cookie.split("; ").map(cookie => cookie.split("="))
+    );
+    return cookies[name];
 }
 
 // Function para atualizar a tabela com os dados armazenados
 function atualizarTabela(scores) {
     const tabela = document.getElementById('tabela-dados');
     tabela.innerHTML = ''; 
-
+// ordenação de scores
+        scores.sort((a, b) => a.tentativas - b.tentativas);
+        const topScores = scores.slice(0, 5);
+        
     scores.forEach((score, index) => {
         const row = tabela.insertRow(index);
         const cellNome = row.insertCell(0);

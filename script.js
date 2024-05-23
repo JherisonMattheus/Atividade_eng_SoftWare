@@ -96,7 +96,7 @@ comecar.addEventListener('click', ()=>{
     tela_jogo.classList.remove('dimension-zero');
     tela_jogo.classList.add('dimension-full');
     }
-
+    armazenardados();
 });
 
 sair.addEventListener('click', ()=>{
