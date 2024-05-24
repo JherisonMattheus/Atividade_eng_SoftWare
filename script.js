@@ -95,7 +95,7 @@ comecar.addEventListener('click', ()=>{
     tela_jogo.classList.remove('dimension-zero');
     tela_jogo.classList.add('dimension-full');
     }
-    armazenardados();
+    // armazenardados();
 });
 
 sair.addEventListener('click', sairTela);
@@ -195,6 +195,13 @@ function atualizarIndicador(chuteUsuario) {
 
 let tentativas = 0;
 document.getElementById('chutar').addEventListener('click', verificarChute);
+document.getElementById('chute').addEventListener('keydown', (event) =>{
+    if(event.key === 'Enter'){
+        verificarChute();
+        chute.value = '';
+    }
+});
+
 let telaParabens = document.createElement('div');
 let buttonParabens = document.createElement('button');
 let msgParabens = document.createElement('p');
@@ -218,11 +225,14 @@ function verificarChute() {
             telaParabens.appendChild(msgParabens);
             telaParabens.appendChild(buttonParabens);
             buttonParabens.addEventListener('click', sairTela);
+            return(true);
 
         } else if (Math.abs(chuteUsuario - num_random) <= 10) {
             dica.textContent = "Você está quente!";
+            
         } else {
             dica.textContent = "Você está frio!";
+            
         }
 
         atualizarIndicador(chuteUsuario);
