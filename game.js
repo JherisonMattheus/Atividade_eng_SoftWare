@@ -36,9 +36,9 @@ function verificarChute() {
     const chute = document.getElementById('chute');
     const dica = document.getElementById('dica').querySelector('p');
 
-    ++tentativas;
     if (!isNaN(chute.value) && chute.value >= 0 && chute.value <= 100) {
         const chuteUsuario = parseInt(chute.value);
+        ++tentativas;
         if (chuteUsuario === num_random) {
             dica.textContent = "Você acertou!";
             armazenardados();
@@ -79,6 +79,7 @@ function armazenardados(){
     scores.push(novoScore);
     saveScore(scores);
     atualizarTabela(scores);
+    tentativas = 0;
 };
 
 //function para a configuração de duração de tempo do cookie 
