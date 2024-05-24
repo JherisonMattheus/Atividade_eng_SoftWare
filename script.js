@@ -98,8 +98,10 @@ comecar.addEventListener('click', ()=>{
     armazenardados();
 });
 
-sair.addEventListener('click', ()=>{
+sair.addEventListener('click', sairTela);
 
+function sairTela(){
+    
     if(!sec_historico.classList.contains('hide')) {
         main_screen.classList.remove('main-screen-alt');
 
@@ -115,7 +117,9 @@ sair.addEventListener('click', ()=>{
 
         sair.style.bottom = '105px';   
 
-    }else if(!game.classList.contains('hide')){
+    }
+    
+    else if(!game.classList.contains('hide')){
 
         if(!tela_jogo.classList.contains('hide')){
             main_screen.classList.remove('main-screen-alt-2');
@@ -129,6 +133,12 @@ sair.addEventListener('click', ()=>{
             }, 2000);
             tela_jogo.classList.remove('dimension-full');
             tela_jogo.classList.add('dimension-zero');
+            if(telaParabens.classList.contains('tela-parabens')){
+                setTimeout(function(){
+                    main_screen.removeChild(telaParabens);
+                }, 2000);
+            }
+
         }
         game.classList.add('hide');
 
@@ -142,11 +152,12 @@ sair.addEventListener('click', ()=>{
         register.classList.add('dimension-zero');
 
         sair.style.bottom = '105px';
-    }else {
+    }
+    
+    else {
         window.location.href = "about:blank";
     }
-        
-});
+}
 
 
 //game.js
@@ -184,7 +195,9 @@ function atualizarIndicador(chuteUsuario) {
 
 let tentativas = 0;
 document.getElementById('chutar').addEventListener('click', verificarChute);
-
+let telaParabens = document.createElement('div');
+let buttonParabens = document.createElement('button');
+let msgParabens = document.createElement('p');
 
 function verificarChute() {
     const chute = document.getElementById('chute');
@@ -196,7 +209,16 @@ function verificarChute() {
         if (chuteUsuario === num_random) {
             dica.textContent = "Você acertou!";
             armazenardados();
-    
+
+            buttonParabens.textContent = 'Sair';
+            msgParabens.textContent = "Parabéns";
+
+            main_screen.appendChild(telaParabens);
+            telaParabens.classList.add('tela-parabens');
+            telaParabens.appendChild(msgParabens);
+            telaParabens.appendChild(buttonParabens);
+            buttonParabens.addEventListener('click', sairTela);
+
         } else if (Math.abs(chuteUsuario - num_random) <= 10) {
             dica.textContent = "Você está quente!";
         } else {

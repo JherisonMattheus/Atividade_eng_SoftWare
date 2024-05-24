@@ -14,10 +14,12 @@
     <title>Chute</title>
 </head>
 <body>
-
+    <!-- tela principal do jogo -->
     <main id="main-screen" class="main-screen">
         <h1>Chute</h1>
+        <!-- botão para abrir o historico -->
         <button id="historico" class="historico" type="button">Histórico</button>
+        <!-- tela do historico -->
         <section id="sec-historico" class="sec-historico hide">
            
             <table id="table" class="hide">
@@ -34,13 +36,17 @@
             </table>
                
         </section>
+        <!-- botão para abrir a tela de registro de nickname -->
         <button id="play" class="play" type="button">Play</button>
         <section id="game" class="game hide">
+            <!-- tela de registro de nickname  -->
             <div id="nickname-register" class="nickname-register dimension-zero">
                 <h3 class="jogador">Jogador</h3>
                 <input id="nickname" class="nickname" type="text" placeholder="Nickname">
+                <!-- botão para abrir a tela do jogo -->
                 <button id="button-nickname" class="button-nickname" type="button">Começar</button>
             </div>
+            <!-- tela do jogo -->
             <section id="tela-jogo" class="tela-jogo dimension-zero hide">
                 <div class="barra-frio-quente">
                     <div class="indicador">😐</div>
@@ -54,9 +60,10 @@
                 </div>
             </section>
         </section>
+        <!-- botão para sair das telas (funciona para todas as telas) -->
         <button id="sair" class="sair" type="button">Sair</button>
     </main>
-    <!-- <script src="game.js" defer></script> -->
+
     <script src="script.js" defer></script></script>
 </body>
 </html>
