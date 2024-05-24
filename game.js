@@ -30,7 +30,16 @@ function atualizarIndicador(chuteUsuario) {
 
 let tentativas = 0;
 document.getElementById('chutar').addEventListener('click', verificarChute);
+document.getElementById('chute').addEventListener('keydown', (event) =>{
+    if(event.key === 'Enter'){
+        verificarChute();
+        chute.value = '';
+    }
+});
 
+let telaParabens = document.createElement('div');
+let buttonParabens = document.createElement('button');
+let msgParabens = document.createElement('p');
 
 function verificarChute() {
     const chute = document.getElementById('chute');
@@ -42,11 +51,23 @@ function verificarChute() {
         if (chuteUsuario === num_random) {
             dica.textContent = "Você acertou!";
             armazenardados();
-    
+
+            buttonParabens.textContent = 'Sair';
+            msgParabens.textContent = "Parabéns";
+
+            main_screen.appendChild(telaParabens);
+            telaParabens.classList.add('tela-parabens');
+            telaParabens.appendChild(msgParabens);
+            telaParabens.appendChild(buttonParabens);
+            buttonParabens.addEventListener('click', sairTela);
+            return(true);
+
         } else if (Math.abs(chuteUsuario - num_random) <= 10) {
             dica.textContent = "Você está quente!";
+            
         } else {
             dica.textContent = "Você está frio!";
+            
         }
 
         atualizarIndicador(chuteUsuario);
@@ -115,7 +136,7 @@ function atualizarTabela(scores) {
         scores.sort((a, b) => a.tentativas - b.tentativas);
         const topScores = scores.slice(0, 5);
         
-    scores.forEach((score, index) => {
+    topScores.forEach((score, index) => {
         const row = tabela.insertRow(index);
         const cellNome = row.insertCell(0);
         const cellTentativas = row.insertCell(1);
@@ -126,14 +147,12 @@ function atualizarTabela(scores) {
         cellData.textContent = score.data;
     });
 }
-
 // Atualiza a tabela ao carregar a página com dados existentes
-window.addEventListener('DOMContentLoaded', () => {
+function atualizartabelav2(){
     const cookieValue = getCookie('gameScores');
     console.log('oi');  
     console.log('Cookie Value:', cookieValue);
     const scores = JSON.parse(getCookie('gameScores') || '[]');
     console.log('Scores:', scores); // Adicione este log para verificar os scores
     atualizarTabela(scores);
-});
-
+}
