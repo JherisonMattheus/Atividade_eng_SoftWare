@@ -29,11 +29,13 @@ function atualizarIndicador(chuteUsuario) {
 }
 
 let tentativas = 0;
+document.getElementById('')
 document.getElementById('chutar').addEventListener('click', verificarChute);
 document.getElementById('chute').addEventListener('keydown', (event) =>{
     if(event.key === 'Enter'){
         verificarChute();
         chute.value = '';
+        
     }
 });
 
@@ -81,7 +83,7 @@ let nomeJogador = '';
 
 document.getElementById('button-nickname').addEventListener('click', () => {
     nomeJogador = document.getElementById('nickname').value;
-    document.getElementById('nickname-register').classList.add('hide');
+
 });
 
 //function para armazenar os dados no cookie
