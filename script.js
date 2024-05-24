@@ -301,7 +301,7 @@ function atualizarTabela(scores) {
         scores.sort((a, b) => a.tentativas - b.tentativas);
         const topScores = scores.slice(0, 5);
         
-    scores.forEach((score, index) => {
+    topScores.forEach((score, index) => {
         const row = tabela.insertRow(index);
         const cellNome = row.insertCell(0);
         const cellTentativas = row.insertCell(1);
