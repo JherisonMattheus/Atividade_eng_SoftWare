@@ -51,6 +51,7 @@
     //rota e regras do evento play
     play.addEventListener('click', ()=>{
         nickname.value ='';
+        nickname.focus();
         document.getElementById('chute').value = '';
         game.classList.remove('hide');
         document.getElementById('dica').querySelector('p').textContent = '';
@@ -78,8 +79,9 @@
             nickname.placeholder = "Digite um Nickname";
 
         }else{//caso sim, inicia o jogo
-
-            
+            setTimeout(function(){
+                document.getElementById('chute').focus();
+            },100);
             //cria um numero aleatorio
             num_random = Math.floor(Math.random() * 101);
             //necessita desse console log?
@@ -138,9 +140,12 @@
                 }, 2000);
                 tela_jogo.classList.remove('dimension-full');
                 tela_jogo.classList.add('dimension-zero');
+                tentativas = 0;
                 if(telaParabens.classList.contains('tela-parabens')){
+                    telaParabens.classList.add('tela-parabens-alt');
                     setTimeout(function(){
                         main_screen.removeChild(telaParabens);
+                        telaParabens.classList.remove('tela-parabens-alt');
                     }, 2000);
                 }
 

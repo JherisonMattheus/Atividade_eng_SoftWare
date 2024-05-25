@@ -327,3 +327,8 @@ tr:last-of-type td{
 .dimension-full {
     height: 100%;
 }
+
+.tela-parabens-alt{
+    width: 400px;
+    transition: width 2s ease-in-out;
+}

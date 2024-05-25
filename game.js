@@ -34,8 +34,6 @@ document.getElementById('chutar').addEventListener('click', verificarChute);
 document.getElementById('chute').addEventListener('keydown', (event) =>{
     if(event.key === 'Enter'){
         verificarChute();
-        chute.value = '';
-        
     }
 });
 
@@ -64,13 +62,16 @@ function verificarChute() {
             buttonParabens.addEventListener('click', sairTela);
             return(true);
 
-        } else if (Math.abs(chuteUsuario - num_random) <= 10) {
+        } else if (Math.abs(chuteUsuario - num_random) <= 5) {
             dica.textContent = "Você está quente!";
             
         } else {
             dica.textContent = "Você está frio!";
             
         }
+
+        chute.value = '';
+        chute.focus();
 
         atualizarIndicador(chuteUsuario);
     } else {
